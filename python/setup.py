@@ -6,6 +6,7 @@ from pathlib import Path
 CONFIG = "config.toml"
 YEAR = 2023
 
+
 def get_session():
     try:
         env = toml.load(Path(Path(__file__).parents[2], CONFIG))
@@ -18,7 +19,7 @@ def get_session():
 
 def get_input(day: int):
     input_url = f"https://adventofcode.com/{YEAR}/day/{day}/input"
-    response = requests.get(input_url, cookies={"session": get_session()}) 
+    response = requests.get(input_url, cookies={"session": get_session()})
     return response.text.split("\n")[:-1]
 
 
