@@ -16,6 +16,10 @@ class Base:
         response = requests.get(input_url, cookies={"session": get_session()})
 
         return response.text.strip()
+    
+    def get_test_input(self):
+        f = open(Path(Path(__file__).parents[1], "tests", f"test{self.day}.txt"))
+        return f.read().strip()
 
     def run(self):
         print(self.part_1(self.parse_input()))

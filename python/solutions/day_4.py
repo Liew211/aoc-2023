@@ -10,45 +10,35 @@ class Day4(Base):
 
     def part_1(self, data):
         total = 0
-        for i, line in enumerate(data):
-            possible = True
-            _, records = line.split(":")
-            for r in records.strip().split(";"):
-                for s in r.split(","):
-                    num, color = s.strip().split()
-                    if color == "red":
-                        if int(num) > 12:
-                            possible = False
-                    if color == "green":
-                        if int(num) > 13:
-                            possible = False
-                    if color == "blue":
-                        if int(num) > 14:
-                            possible = False
-            if possible:
-                total += i + 1
-
+        for line in data:
+            _, d = line.split(":")
+            winning, you = d.strip().split("|")
+            
+            winning_nums = set(int(n) for n in winning.split())
+            your_nums = set(int(n) for n in you.split())
+            print(winning_nums)
+            print(your_nums)
+            print([n for n in your_nums if n in winning_nums])
+            total += int(2**(len([n for n in your_nums if n in winning_nums])-1))
+                
+        
         return total
 
     def part_2(self, data):
-        total = 0
+        num_cards = [1 for n in range(len(data))]
         for i, line in enumerate(data):
-            red = 0
-            blue = 0
-            green = 0
-            _, records = line.split(":")
-            for r in records.strip().split(";"):
-                for s in r.split(","):
-                    num, color = s.strip().split()
-                    if color == "red":
-                        if int(num) > red:
-                            red = int(num)
-                    if color == "green":
-                        if int(num) > green:
-                            green = int(num)
-                    if color == "blue":
-                        if int(num) > blue:
-                            blue = int(num)
-            total += red * blue * green
+            _, d = line.split(":")
+            winning, you = d.strip().split("|")
+            
+            winning_nums = set(int(n) for n in winning.split())
+            your_nums = set(int(n) for n in you.split())
+
+            for j in range(i+1, i + 1 + len([n for n in your_nums if n in winning_nums])):
+                num_cards[j] += num_cards[i]
+
+                
+        
+        return sum(num_cards)
+        
 
         return total

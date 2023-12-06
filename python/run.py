@@ -7,6 +7,7 @@ from solutions import (
     Day3,
     Day4,
     Day5,
+    Day6,
 )
 
 
@@ -17,6 +18,7 @@ SOLUTIONS = [
     Day3(),
     Day4(),
     Day5(),
+    Day6(),
 ]
 
 
