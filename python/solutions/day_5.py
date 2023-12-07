@@ -45,7 +45,6 @@ class Day5(Base):
             current_vals = ranges
             
             for map in maps:
-                # print(current_vals)
                 stack = current_vals
                 current_vals = []
                 while len(stack) > 0:
@@ -82,11 +81,8 @@ class Day5(Base):
 
         min_location = 910845529
         for i in range(0, len(seeds), 2):
-            # print(f"range {i // 2}")
             ranges = [[seeds[i], seeds[i] + seeds[i + 1]]]
-            # print(ranges)
             range_min = get_location(ranges)
-            # print(range_min)
             min_location = min(min_location, range_min)
 
         

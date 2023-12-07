@@ -3,25 +3,28 @@ import toml
 from pathlib import Path
 
 
-CONFIG = "config.toml"
-YEAR = 2023
+for i in range(8, 26):
+    with open(f"python/solutions/day_{i}.py", "w+") as f:
+        f.write("""from .base import Base
 
 
-def get_session():
-    try:
-        env = toml.load(Path(Path(__file__).parents[2], CONFIG))
-        session = env["session"]
-    except:
-        raise Exception("Error loading session")
+class Day%d(Base):
+    def __init__(self):
+        self.day = %d
 
-    return session
+    def parse_input(self):
+        data = super().get_input().split("\\n")
+        # data = super().get_test_input().split("\\n")
 
+        return data
 
-def get_input(day: int):
-    input_url = f"https://adventofcode.com/{YEAR}/day/{day}/input"
-    response = requests.get(input_url, cookies={"session": get_session()})
-    return response.text.split("\n")[:-1]
+    def part_1(self, data):
+        total = 0
 
+        return total
 
-if __name__ == "__main__":
-    r = get_input(1)
+    def part_2(self, data):
+        total = 0
+
+        return total
+""" % (i, i))

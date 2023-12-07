@@ -16,12 +16,8 @@ class Day4(Base):
             
             winning_nums = set(int(n) for n in winning.split())
             your_nums = set(int(n) for n in you.split())
-            print(winning_nums)
-            print(your_nums)
-            print([n for n in your_nums if n in winning_nums])
             total += int(2**(len([n for n in your_nums if n in winning_nums])-1))
-                
-        
+
         return total
 
     def part_2(self, data):
@@ -36,9 +32,5 @@ class Day4(Base):
             for j in range(i+1, i + 1 + len([n for n in your_nums if n in winning_nums])):
                 num_cards[j] += num_cards[i]
 
-                
-        
         return sum(num_cards)
-        
 
-        return total
