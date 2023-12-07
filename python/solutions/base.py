@@ -14,7 +14,7 @@ class Base:
         self.day = 0
 
     def get_input(self):
-        cache = Path(Path(__file__).parents[1], "inputs", f"input{self.day}.txt")
+        cache = Path(Path(__file__).parents[2], "inputs", f"input{self.day}.txt")
         if exists(cache):
             f = open(cache)
             return f.read().strip()
@@ -33,7 +33,7 @@ class Base:
         return text
 
     def get_test_input(self):
-        f = open(Path(Path(__file__).parents[1], "tests", f"test{self.day}.txt"))
+        f = open(Path(Path(__file__).parents[2], "tests", f"test{self.day}.txt"))
         return f.read().strip()
 
     def run(self):
