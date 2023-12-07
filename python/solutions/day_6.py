@@ -31,12 +31,10 @@ class Day6(Base):
     def part_2(self, data):
         time = int("".join(data[0].strip().split()[1:]))
         distance = int("".join(data[1].strip().split()[1:]))
-        
+
         f = lambda x: (time - x) * x - distance
-        
 
         # print(f"{fsolve(f, [7700000, 38000000])}")
         sol = fsolve(f, [7700000, 38000000])
-        
-        
+
         return math.floor(sol[1]) - math.ceil(sol[0]) + 1

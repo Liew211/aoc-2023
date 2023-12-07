@@ -23,7 +23,7 @@ class Day3(Base):
                 else:
                     new_line.append("")
             new_map.append(new_line)
-        
+
         for i, line in enumerate(new_map):
             for j, point in enumerate(line):
                 if point.isdigit() and self.check_symbol(data, i, j, len(point)):
@@ -44,7 +44,7 @@ class Day3(Base):
                 else:
                     new_line.append("")
             new_map.append(new_line)
-        
+
         gear_map = defaultdict(list)
         for i, line in enumerate(new_map):
             for j, point in enumerate(line):
@@ -58,16 +58,16 @@ class Day3(Base):
         return total
 
     def check_symbol(self, data, i, j, length):
-        for x in range(max(0, i-1), min(len(data), i+2)):
-            for y in range(max(0, j-1), min(len(data[0]), j+length+1)):
+        for x in range(max(0, i - 1), min(len(data), i + 2)):
+            for y in range(max(0, j - 1), min(len(data[0]), j + length + 1)):
                 if re.match(r"[^0-9.]", data[x][y]):
                     return True
         return False
-    
+
     def find_symbols(self, data, i, j, number):
         symbols = defaultdict(list)
-        for x in range(max(0, i-1), min(len(data), i+2)):
-            for y in range(max(0, j-1), min(len(data[0]), j+len(number)+1)):
+        for x in range(max(0, i - 1), min(len(data), i + 2)):
+            for y in range(max(0, j - 1), min(len(data[0]), j + len(number) + 1)):
                 if re.match(r"[^0-9.]", data[x][y]):
                     symbols[f"{x},{y}"].append(int((number)))
 

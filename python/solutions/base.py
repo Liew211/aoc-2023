@@ -31,7 +31,7 @@ class Base:
             f.write(text)
 
         return text
-    
+
     def get_test_input(self):
         f = open(Path(Path(__file__).parents[1], "tests", f"test{self.day}.txt"))
         return f.read().strip()

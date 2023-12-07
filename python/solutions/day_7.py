@@ -13,7 +13,6 @@ class Day7(Base):
         return [line.split() for line in data]
 
     def part_1(self, data):
-        
         data.sort(key=cmp_to_key(self.sorter))
         total = 0
         for i, player in enumerate(data):
@@ -52,9 +51,14 @@ class Day7(Base):
         if len(set(cards)) == 5:
             # high card
             return 6
-        
+
     def sorter(self, a, b):
-        cards = {c: i for i, c in enumerate(["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"])}
+        cards = {
+            c: i
+            for i, c in enumerate(
+                ["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"]
+            )
+        }
         if self.get_type(a[0]) != self.get_type(b[0]):
             return self.get_type(a[0]) - self.get_type(b[0])
 
@@ -70,7 +74,7 @@ class Day7(Base):
         hand = hand.replace("J", max(set(temp), key=temp.count))
 
         cards = sorted([c for c in hand])
-        
+
         if len(set(cards)) == 1:
             # 5 of a kind
             return 0
@@ -92,9 +96,14 @@ class Day7(Base):
         if len(set(cards)) == 5:
             # high card
             return 6
-        
+
     def sorter2(self, a, b):
-        cards = {c: i for i, c in enumerate(["A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"])}
+        cards = {
+            c: i
+            for i, c in enumerate(
+                ["A", "K", "Q", "T", "9", "8", "7", "6", "5", "4", "3", "2", "J"]
+            )
+        }
         if self.get_type2(a[0]) != self.get_type2(b[0]):
             return self.get_type2(a[0]) - self.get_type2(b[0])
 

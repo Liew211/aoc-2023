@@ -5,7 +5,8 @@ from pathlib import Path
 
 for i in range(8, 26):
     with open(f"python/solutions/day_{i}.py", "w+") as f:
-        f.write("""from .base import Base
+        f.write(
+            """from .base import Base
 
 
 class Day%d(Base):
@@ -27,4 +28,6 @@ class Day%d(Base):
         total = 0
 
         return total
-""" % (i, i))
+"""
+            % (i, i)
+        )

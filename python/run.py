@@ -33,9 +33,9 @@ SOLUTIONS = [
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('day', type=int)
-    parser.add_argument('-t', "--time", action="store_true")
+    parser = argparse.ArgumentParser(description="Process some integers.")
+    parser.add_argument("day", type=int)
+    parser.add_argument("-t", "--time", action="store_true")
     args = parser.parse_args()
     start = time()
     SOLUTIONS[args.day].run()
