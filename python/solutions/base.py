@@ -38,9 +38,10 @@ class Base:
 
     def run(self):
         p1 = self.part_1(self.parse_input())
+        print(p1)
+
         p2 = self.part_2(self.parse_input())
 
-        print(p1)
         if p2 == None:
             pyperclip.copy(p1)
         else:
