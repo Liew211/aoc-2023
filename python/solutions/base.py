@@ -42,7 +42,7 @@ class Base:
 
         p2 = self.part_2(self.parse_input())
 
-        if p2 == None:
+        if not p2:
             pyperclip.copy(p1)
         else:
             pyperclip.copy(p2)
